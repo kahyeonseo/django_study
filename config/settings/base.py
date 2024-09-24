@@ -9,8 +9,11 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv('./.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -36,7 +39,9 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 #추가한 앱
-CUSTOM_APPS = []
+CUSTOM_APPS = [
+    'users',
+]
 #써드 파티 앱: 써드파티 앱이 장고의 리소스를 사용하냐 안하냐
 THIRD_PARTY_APPS = [
     'rest_framework',
@@ -80,8 +85,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME', 'postgres'), #데이터베이스 이름
+        'USER': os.environ.get('DB_USER', 'postgres'), #데이터베이스 연결할  유저
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'postgres'), #데이터베이스 연결할 유저의 비밀번호
+        'HOST': os.environ.get('DB_HOST', 'localhost'), #데이터베이스 접속 시 사용할 Host(ip 주소, localhost=127.0.0.1)
+        'PORT': os.environ.get('DB_PORT', '5432'), #데이터베이스 연결 시 사용할 port
     }
 }
 

@@ -41,6 +41,8 @@ DJANGO_APPS = [
 #추가한 앱
 CUSTOM_APPS = [
     'users',
+    'reservations',
+    'restaurants',
 ]
 #써드 파티 앱: 써드파티 앱이 장고의 리소스를 사용하냐 안하냐
 THIRD_PARTY_APPS = [
@@ -139,3 +141,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': 'rest_framework.permissions.', #인증: 로그인, 인가: 권한
 }
+
+AUTH_USER_MODEL = 'users.User'

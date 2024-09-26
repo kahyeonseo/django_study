@@ -31,7 +31,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(max_length=30, null=False, unique=True) # 이메일
     is_active = models.BooleanField(default=False) #
-    phone = models.CharField(max_length=11, unique=True) # 전화 번호
+    phone = models.CharField(max_length=13, unique=True) # 전화 번호
     nickname = models.CharField(max_length=12) # 이름(닉네임)
     birthday = models.DateField(null=True, blank=True) # 생일
     gender = models.CharField(choices=GenderChoices) # 성별

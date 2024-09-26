@@ -139,7 +139,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': 'rest_framework.permissions.', #인증: 로그인, 인가: 권한
+    'DEFAULT_PERMISSION_CLASSES': 'rest_framework.permissions.AllowAny', #인증: 로그인, 인가: 권한
 }
 
 AUTH_USER_MODEL = 'users.User'

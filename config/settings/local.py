@@ -6,6 +6,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+INSTALLED_APPS += [
+    'drf_yasg',
+]
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.naver.com'
 EMAIL_PORT = 587
